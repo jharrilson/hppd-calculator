@@ -71,9 +71,6 @@
     <label for="rnHours">RN Hours</label>
     <input type="number" id="rnHours" placeholder="Enter RN Hours" />
 
-    <label for="lpnHours">LPN Hours</label>
-    <input type="number" id="lpnHours" placeholder="Enter LPN Hours" />
-
     <label for="cnaHours">CNA/NA Hours</label>
     <input type="number" id="cnaHours" placeholder="Enter CNA/NA Hours" />
 
@@ -91,7 +88,6 @@
   <script>
     function calculateHPPD() {
       const rn = parseFloat(document.getElementById('rnHours').value) || 0;
-      const lpn = parseFloat(document.getElementById('lpnHours').value) || 0;
       const cna = parseFloat(document.getElementById('cnaHours').value) || 0;
       const other = parseFloat(document.getElementById('otherHours').value) || 0;
       const census = parseFloat(document.getElementById('census').value);
@@ -101,7 +97,7 @@
         return;
       }
 
-      const totalHours = rn + lpn + cna + other;
+      const totalHours = rn + cna + other;
       const hppd = totalHours / census;
 
       document.getElementById('result').innerText = `HPPD: ${hppd.toFixed(2)}`;
